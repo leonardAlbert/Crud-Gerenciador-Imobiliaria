@@ -1,0 +1,159 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<configdata>
+	<nav>
+	
+		<inicio>
+			<label>Inicio</label>
+			<uri>/principal</uri>
+		</inicio>
+
+
+		<clientes>
+			<label>Clientes</label>
+			<uri></uri>
+				<pages>
+					<cadastrar>
+						<label>Cadastrar</label>
+						<module>imobiliaria</module>
+						<controller>clientes</controller>
+						<action>cadastrar</action>
+					</cadastrar>
+
+					<exibir>
+						<label>Listar</label>
+						<module>imobiliaria</module>
+						<controller>clientes</controller>
+						<action>listar</action>
+					</exibir>
+				</pages>
+		</clientes>
+
+		<imovel>
+			<label>Imóvel</label>
+			<uri></uri>
+				<pages>
+					<cadastrar>
+						<label>Cadastrar</label>
+						<module>imobiliaria</module>
+						<controller>imovel</controller>
+						<action>cadastrar</action>
+					</cadastrar>
+
+					<exibir>
+						<label>Listar</label>
+						<module>imobiliaria</module>
+						<controller>imovel</controller>
+						<action>listar</action>
+					</exibir>
+					<pesquisa>
+						<label>Pesquisa Detalhada</label>
+						<module>imobiliaria</module>
+						<controller>imovel</controller>
+						<action>pesquisar</action>
+					</pesquisa>
+				</pages>
+		</imovel>
+
+		<corretor>
+			<label>Corretor</label>
+			<uri></uri>
+				<pages>
+					<cadastrar>
+						<label>Cadastrar</label>
+						<module>imobiliaria</module>
+						<controller>corretor</controller>
+						<action>cadastrar</action>
+					</cadastrar>
+
+					<exibir>
+						<label>Listar</label>
+						<module>imobiliaria</module>
+						<controller>corretor</controller>
+						<action>listar</action>
+					</exibir>
+				</pages>
+		</corretor>
+		
+		<administracao>
+			<label>Administração</label>
+			<uri></uri>
+				
+			<pages>
+				<imobiliaria>
+					<label>Imobiliária</label>
+					<uri></uri>
+					<pages>
+						<cadastrar>
+							<label>Cadastrar</label>
+							<module>administracao</module>
+							<controller>imobiliaria</controller>
+							<action>cadastrar</action>
+						</cadastrar>
+		
+						<exibir>
+							<label>Listar</label>
+							<module>administracao</module>
+							<controller>imobiliaria</controller>
+							<action>listar</action>
+						</exibir>
+					</pages>
+				</imobiliaria>
+					
+				<cliente>
+					<label>Cliente</label>
+					<uri></uri>
+					<pages>
+						<blackList>
+							<label>BlackList Clientes</label>
+							<module>imobiliaria</module>
+							<controller>clientes</controller>
+							<action>blacklist</action>
+						</blackList>
+					</pages>
+				</cliente>
+				
+				<imovel>
+					<label>Imóvel</label>
+					<uri></uri>
+					<pages>
+						<blackList>
+							<label>BlackList Imóvel</label>
+							<module>imobiliaria</module>
+							<controller>imovel</controller>
+							<action>blackList</action>
+						</blackList>
+					</pages>
+				</imovel>
+					
+				<usuarios>
+					<label>Usuários</label>
+					<uri></uri>
+					<pages>
+						<cadastrar>
+							<label>Cadastrar</label>
+							<module>administracao</module>
+							<controller>usuarios</controller>
+							<action>cadastrar</action>
+						</cadastrar>
+		
+						<exibir>
+							<label>Listar</label>
+							<module>administracao</module>
+							<controller>usuarios</controller>
+							<action>listar</action>
+						</exibir>
+					</pages>
+				</usuarios>
+					
+			</pages>
+		</administracao>
+
+
+		<sair>
+			<label>Sair</label>
+			<uri>/login/sair</uri>
+		</sair>
+
+
+	</nav>
+</configdata>

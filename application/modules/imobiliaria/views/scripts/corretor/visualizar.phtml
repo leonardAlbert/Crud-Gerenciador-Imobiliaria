@@ -1,0 +1,52 @@
+<h3>Visualizar Corretor</h3>
+
+<?php if (is_array($this->message)) :?>
+	<?php foreach ($this->message as $msg) :?>
+		<h3><?php echo $msg; ?></h3>
+	<?php endforeach;?>
+<?php endif;?>
+
+<div align="center">
+	<fieldset>
+	<legend>Informações do Corretor</legend>
+		<?php if( $this->list != NULL ) : ?>
+		<?php foreach ($this->list as $corretor) : ?>
+		
+		<table class="dados" id="dados">
+			<tr>
+				<td>ID Corretor: <?php echo $corretor->getCorretor()->id_corretor; ?></td>
+				<td>Situação: <?php echo $corretor->getSituacao(); ?></td>
+				<td>Nome: <?php echo $corretor->getCorretor()->nome; ?></td>
+				<td>Creci: <?php echo $corretor->getCorretor()->creci; ?></td>
+			</tr>
+			
+			<tr>
+				<td>Telefone: <?php echo $corretor->getTelefone()->telefone; ?></td>
+				<td>Enereço: <?php echo $corretor->getEndereco()->logradouro; ?>
+				<?php echo $corretor->getEndereco()->numero_end; ?></td>
+				<td>Bairro: <?php echo $corretor->getEndereco()->bairro; ?></td>
+			</tr>
+
+			<tr>
+				<td>Cep: <?php echo $corretor->getEndereco()->cep; ?></td>
+				<td>Zona: <?php echo $corretor->getEndereco()->zona; ?></td>
+				<td>Cidade: <?php echo $corretor->getEndereco()->cidade; ?></td>
+				<td>Estado: <?php echo $corretor->getEndereco()->estado; ?></td>
+			</tr>
+
+			<tr>
+				<td>Data Cadastro: <?php echo $corretor->getCorretor()->situacao; ?></td>
+				<td>Data Cadastro: <?php echo $corretor->getCorretor()->data_cadastro; ?></td>
+			</tr>
+			
+				
+		    <?php endforeach; ?>
+			<?php endif; ?>
+		</table>
+	
+	</fieldset>
+</div>	
+
+<script type="text/javascript">
+	Registros.visualizar();
+</script>

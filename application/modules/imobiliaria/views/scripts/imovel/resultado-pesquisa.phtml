@@ -1,0 +1,64 @@
+<h3 align="center">Resultado da Pesquisa de Imóvel</h3>
+
+<?php if (is_array($this->message)) :?>
+    <?php foreach ($this->message as $msg) :?>
+        <h3><?php echo $msg; ?></h3>
+    <?php endforeach;?>
+ <?php endif;?>
+ 
+<table class="dados" id="dados">
+    <thead>
+        <tr>
+			<th>Imóvel</th>
+			<th>Tipo Imovel</th>
+			<th>Valor Imovel</th>
+			<th>Status Imovel</th>
+			<th>Endereço</th>
+            <th>Opções</th>
+        </tr>
+     </thead>
+     
+     <tbody>
+        <?php if( $this->pesquisaImovel != NULL ) : ?>
+	        <?php foreach ($this->pesquisaImovel as $row) : ?>
+	        	<?php foreach ($row as $imovel) : ?>
+	            <tr>
+	                <td style="text-align: center;"><?php echo $imovel->getImovel()->imovel; ?></td>
+	                <td style="text-align: center;"><?php echo $imovel->getTipoImovel(); ?></td>
+	                <td style="text-align: center;">R$: <?php echo $imovel->getImovel()->valor_imovel; ?></td>
+	                <td style="text-align: center;"><?php echo $imovel->getStatusImovel(); ?></td>
+	                <td style="text-align: center;"><?php echo $imovel->getEndereco()->logradouro .' '. $imovel->getEndereco()->numero_end; ?></td>
+	                
+	                <td style="text-align: center; width: 150px;">
+   					<a href="<?php echo $this->url(array(
+		            				'module' 	 => 'imobiliaria',
+		                            'controller' => 'imovel',
+		                            'action'     => 'visualizar',
+		                            'id'         => $imovel->getImovel()->id_imovel)); ?> " title="Visualizar"  target="_blank" return false; >
+						<img id="icone_visualizar" src="/images/buscar.png" />
+					</a>
+					</td>  
+					  
+				</tr>
+				<?php endforeach;?>
+      		  <?php endforeach; ?>
+     	   <?php endif; ?>
+	</tbody>
+</table>
+
+<div align="left">
+	<a href="/imobiliaria/imovel/pesquisar">Voltar</a>
+</div>
+
+<!-- 
+<tr>
+	<td>
+		<a href="" target="_blank" onclick="Nova.janela('/imobiliaria/clientes/cadastrar'); return false; ">Buscar Imóvel</a>
+	</td>
+</tr>
+ -->
+
+
+<script type="text/javascript">
+	Registros.visualizar();
+</script>

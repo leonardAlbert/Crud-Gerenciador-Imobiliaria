@@ -1,0 +1,48 @@
+<h1>Imobiliarias do Sistema</h1>
+
+<?php if (is_array($this->message)) :?>
+    <?php foreach ($this->message as $msg) :?>
+        <h3><?php echo $msg; ?></h3>
+    <?php endforeach;?>
+ <?php endif;?>
+
+<table class="dados">
+    <thead>
+        <tr>
+            <th>Nome</th>
+            <th>Razao Social</th>
+            <th>Site</th>
+            <th>Cnpj</th>
+            <th>Creci</th>
+            <th>Representante</th>
+            <th>Opções</th>
+        </tr>
+     </thead>
+     <tbody>
+        <?php foreach ($this->list as $imobiliaria) : ?>
+            <tr>
+                <td><?php echo $imobiliaria->nome; ?></td>
+                <td><?php echo $imobiliaria->razao_social; ?></td>
+                <td><?php echo $imobiliaria->site; ?></td>
+                <td><?php echo $imobiliaria->cnpj; ?></td>
+                <td><?php echo $imobiliaria->creci; ?></td>
+                <td><?php echo $imobiliaria->representante; ?></td>
+                
+                <td style="text-align: center;">
+                    <a href="<?php echo $this->url(array(
+                                        'module' => 'administracao',
+                                        'controller' => 'imobiliaria',
+                                        'action'     => 'alterar',
+                                        'id'         => $imobiliaria->id_imobiliaria)); ?>" title="Editar">Editar | 
+                    </a>
+                    <a href="<?php echo $this->url(array(
+                                       'module' => 'administracao',
+                                        'controller' => 'imobiliaria',
+                                        'action'     => 'excluir',
+                                        'id'         => $imobiliaria->id_imobiliaria)); ?>" onclick="Registros.excluir(event)">Apagar | 
+                    </a>
+                </td>
+            </tr>
+        <?php endforeach; ?>
+     </tbody>
+</table>

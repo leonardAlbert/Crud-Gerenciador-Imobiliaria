@@ -1,0 +1,101 @@
+<link rel="stylesheet" type="text/css" media="all" href="/css/jquery-ui-1.8.16.custom.css" />
+<script type="text/javascript" src="/js/jquery-ui-1.8.16.custom.min.js"></script>
+
+<h3 align="center">Cadastrar Corretor</h3>
+
+<div align="center">
+<?php if (is_array($this->message)) :?>
+    <?php foreach ($this->message as $msg) :?>
+        <h3><?php echo $msg; ?></h3>
+    <?php endforeach;?>
+ <?php endif;?>
+</div>
+
+<div align="center">
+	<form id="corretor" method="post" action="cadastrar" enctype="application/x-www-form-urlencoded" name="corretor">
+		<fieldset>
+			<legend>Dados</legend>
+				<div id="accordion">
+					<h3><a href="#">Dados Básicos</a></h3>
+					<div>
+						<div class='campo_tupla'>
+							<div class='campo_longo'>
+								<?php echo $this->form->nome; ?>
+							</div>
+							<div class='campo_longo'>
+								<?php echo $this->form->creci; ?>
+							</div>
+						</div>
+						<div style='clear:both;'>&nbsp;</div>
+						<div class='campo_tupla'>
+							<div class='campo_longo'>
+								<?php echo $this->form->tipo_telefone; ?>
+							</div>
+							<div class='campo_longo'>
+								<?php echo $this->form->telefone; ?>
+							</div>
+						</div>
+						<div style='clear:both;'>&nbsp;</div>
+					</div>
+					
+					<h3><a href="#">Endereço</a></h3>
+					<div>
+						<div class='campo_tupla'>
+							<div class='campo_longo'>
+								<?php echo $this->form->tipo_endereco; ?>
+							</div>
+							<div class='campo_longo'>
+								<?php echo $this->form->zona; ?>
+							</div>
+						</div>
+						
+						<div style='clear:both;'>&nbsp;</div>
+						<div class='campo_tupla'>
+							<div class='campo_longo'>
+								<?php echo $this->form->logradouro; ?>
+							</div>
+							<div class='campo_longo'>
+								<?php echo $this->form->numero_end; ?>
+							</div>
+						</div>
+						<div style='clear:both;'>&nbsp;</div>
+						<div class='campo_tupla'>
+							<div class='campo_longo'>
+								<?php echo $this->form->bairro; ?>
+							</div>
+							<div class='campo_longo'>
+								<?php echo $this->form->cep; ?>
+							</div>
+						</div>
+						<div style='clear:both;'>&nbsp;</div>
+						<div class='campo_tupla'>
+							<div class='campo_longo'>
+								<?php echo $this->form->cidade; ?>
+							</div>
+							<div class='campo_longo'>
+								<?php echo $this->form->estado; ?>
+							</div>
+						</div>
+					</div>	
+
+				</div>
+				<div style="text-align: center;"><?php echo $this->form->autenticar; ?></div>
+		</fieldset>
+		<?php echo $this->form->id_corretor; ?>
+		<?php echo $this->form->id_endereco; ?>
+		<?php echo $this->form->id_telefone; ?>
+		<?php echo $this->form->endereco_id; ?>
+		<?php echo $this->form->data_cadastro; ?>
+		<?php echo $this->form->situacao; ?>
+	</form>
+</div>
+
+
+<script type="text/javascript">
+	Cnpj.mascara();
+	Telefone.mascara();
+	Data.mascara();
+	Accordion.mascara();
+	Cpf.mascara();
+	Cep.mascara();
+</script>

@@ -1,0 +1,41 @@
+<script type="text/javascript" src="/js/application.js"></script>
+<link rel="stylesheet" type="text/css" media="all" href="/css/style.css" />
+
+<script type="text/javascript" src="/js/jquery-1.6.2.js"></script>
+<script src="/js/slides/slides.min.jquery.js"></script>
+<script type="text/javascript" src="/js/jquery.maskMoney.js"></script>
+
+<meta name="viewport" content="initial-scale=1.0, user-scalable=no" />
+<script type="text/javascript" src="http://maps.google.com/maps/api/js?sensor=false&region=BR"></script>
+
+<h3>Pagina Principal Imobiliaria.</h3>
+
+<?php if (is_array($this->message)) :?>
+<?php foreach ($this->message as $msg) :?>
+<h3><?php echo $msg; ?></h3>
+<?php endforeach;?>
+<?php endif;?>
+
+<div> <?php echo $this->boasVindas; ?></div>
+
+<div id="slides_principal">
+	<div id="slides">
+		<div class="slides_container">
+			<img src="/uploadsFotos/1.jpg" width="570" height="270" alt="Slide 1">
+			<img src="/uploadsFotos/2.jpg" width="570" height="270" alt="Slide 2">
+			<img src="/uploadsFotos/3.jpg" width="570" height="270" alt="Slide 3">
+			<img src="/uploadsFotos/4.jpg" width="570" height="270" alt="Slide 4">
+			<img src="/uploadsFotos/5.jpg" width="570" height="270" alt="Slide 5">
+		</div>
+
+		<a href="#" class="prev"><img src="/js/slides/arrow-prev.png" width="24" height="43" alt="Arrow Prev"></a>
+		<a href="#" class="next"><img src="/js/slides/arrow-next.png" width="24" height="43" alt="Arrow Next"></a>
+	</div>
+	<img src="/js/slides/example-frame.png" width="739" height="341" alt="Example Frame" id="frame">
+</div>
+
+<script type="text/javascript">
+	Slides.fotos();
+</script>
+
+

@@ -1,0 +1,139 @@
+<link rel="stylesheet" type="text/css" media="all" href="/css/jquery-ui-1.8.16.custom.css" />
+<script type="text/javascript" src="/js/jquery-ui-1.8.16.custom.min.js"></script>
+<script type="text/javascript" src="/js/jquery.maskMoney.js"></script>
+
+<h3 align="center">Cadastrar Interesse do Cliente</h3>
+
+<div align="center">
+<?php if (is_array($this->message)) :?>
+    <?php foreach ($this->message as $msg) :?>
+        <h3><?php echo $msg; ?></h3>
+    <?php endforeach;?>
+ <?php endif;?>
+</div>
+
+<div align="center">
+	<form id="interesse" method="post" action="" enctype="multipart/form-data" name="interesse">
+		<fieldset>
+			<legend>Detalhes do Imóvel</legend>
+				<div id="accordion">
+					<h3><a href="#">Informações do Imóvel</a></h3>
+					<div>
+						<div class='campo_tupla'>
+							<div class='campo_longo'>
+								<?php echo $this->form->tipo_imovel; ?>
+							</div>
+							<div class='campo_longo'>
+								<?php echo $this->form->categoria_imovel; ?>
+							</div>
+						</div>
+						<div style='clear:both;'>&nbsp;</div>
+						<div class='campo_tupla'>
+							<div class='campo_longo'>
+								<?php echo $this->form->valor_imovel; ?>
+							</div>
+							<div class='campo_longo'>
+								<?php echo $this->form->ano_construcao; ?>
+							</div>
+						</div>
+						<div style='clear:both;'>&nbsp;</div>
+						<div class='campo_tupla'>
+							<div class='campo_longo'>
+								<?php echo $this->form->dormitorios; ?>
+							</div>
+							<div class='campo_longo'>
+								<?php echo $this->form->area_servico; ?>
+							</div>
+						</div>
+						<div style='clear:both;'>&nbsp;</div>
+						<div class='campo_tupla'>
+							<div class='campo_longo'>
+								<?php echo $this->form->suite; ?>
+							</div>
+							<div class='campo_longo'>
+								<?php echo $this->form->vaga_carro; ?>
+							</div>
+						</div>
+						<div style='clear:both;'>&nbsp;</div>
+						<div class='campo_tupla'>
+							<div class='campo_longo'>
+								<?php echo $this->form->metragem_terreno; ?>
+							</div>
+							<div class='campo_longo'>
+								<?php echo $this->form->valor_iptu; ?>
+							</div>
+						</div>	
+						<div style='clear:both;'>&nbsp;</div>
+						<div class='campo_tupla'>
+							<div class='campo_longo'>
+								<?php echo $this->form->valor_condominio; ?>
+							</div>
+							<div class='campo_longo'>
+								<?php echo $this->form->area_lazer; ?>
+							</div>
+						</div>	
+						<div style='clear:both;'>&nbsp;</div>
+						<div class='campo_tupla'>
+							<div class='campo_longo'>
+								<?php echo $this->form->area_construida; ?>
+							</div>
+							<div class='campo_longo'>
+								<?php echo $this->form->total_comodos; ?>
+							</div>
+						</div>	
+					</div>
+					
+					<h3><a href="#">Localização</a></h3>
+					<div>
+						<div class='campo_tupla'>
+							<div class='campo_longo'>
+								<?php echo $this->form->tipo_endereco; ?>
+							</div>
+							<div class='campo_longo'>
+								<?php echo $this->form->zona; ?>
+							</div>
+						</div>
+						
+						<div style='clear:both;'>&nbsp;</div>
+						<div class='campo_tupla'>
+							<div class='campo_longo'>
+								<?php echo $this->form->bairro; ?>
+							</div>
+							<div class='campo_longo'>
+								<?php echo $this->form->cidade; ?>
+							</div>
+						</div>
+						<div style='clear:both;'>&nbsp;</div>
+						<div class='campo_tupla'>
+							<div class='campo_unico'>
+								<?php echo $this->form->estado; ?>
+							</div>
+						</div>
+					</div>
+				</div>
+				
+				<div style="text-align: center;"><?php echo $this->form->autenticar; ?></div>
+		</fieldset>
+		<?php echo $this->form->id_interesse; ?>
+	</form>
+</div>
+
+<div align="left">
+	<a href="/imobiliaria/clientes/listar">Voltar</a>
+</div>
+
+<script type="text/javascript">
+	Cnpj.mascara();
+	Telefone.mascara();
+	Data.mascara();
+
+	Accordion.mascara();
+	Cpf.mascara();
+	Cep.mascara();
+
+	Moeda.validar();
+	Digitos.dois();
+	Digitos.quatro();
+
+	Digitos.seis();
+</script>

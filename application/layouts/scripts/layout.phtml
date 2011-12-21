@@ -1,0 +1,47 @@
+<!DOCTYPE head PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+    <head>
+		<link rel="stylesheet" type="text/css" media="all" href="/css/style.css" />
+		<link rel="stylesheet" type="text/css" media="all" href="/css/datatable.css" />
+	 
+	 <!-- 
+		<script type="text/javascript" src="/js/jquery.maskMoney.js"></script>
+	  -->
+     	
+        <script type="text/javascript" src="/js/jquery-1.6.2.js"></script>
+        <script type="text/javascript" src="/js/jquery.maskedinput.js"></script>
+        <script type="text/javascript" src="/js/jquery.validate.js"></script>
+        <script type="text/javascript" src="/js/jquery.dataTables.js"></script>
+        <script type="text/javascript" src="/js/date-pt-BR.js"></script>
+        <script type="text/javascript" src="/js/application.js"></script>
+
+    </head>
+    
+    <body>
+    	<div id="top">
+			<div id="logo">
+				<h1>Soft Skinny</h1>
+				<h3>Gerenciamento Imobiliario</h3>
+			</div>
+		</div>
+    
+      	<div id="menu">
+      		<?php if(ACL::verificarAutenticacao()):?>
+      			<?php echo $this->navigation()->menu(); ?>
+      		<?php endif; ?>
+		</div>
+		
+        <div id="content">
+        	<div id="breadcrumb"><?php echo $this->navigation()->breadcrumbs(); ?></div>
+            <?php echo $this->layout()->content; ?>
+        </div>
+        
+        <br />
+        <br />
+        
+        <div id="footer">
+			<p>Soft Skinny - Genciamento Imobiliario Online - 1.0 &copy;2011</p>
+		</div>
+    
+    </body>
+</html>

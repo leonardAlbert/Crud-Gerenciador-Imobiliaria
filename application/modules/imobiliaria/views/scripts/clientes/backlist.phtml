@@ -1,0 +1,76 @@
+<h1>Visualizar Cliente</h1>
+
+
+<?php if (is_array($this->message)) :?>
+	<?php foreach ($this->message as $msg) :?>
+		<h3><?php echo $msg; ?></h3>
+	<?php endforeach;?>
+<?php endif;?>
+
+<div align="center">
+	<fieldset>
+		<?php if( $this->list != NULL ) : ?>
+		<?php foreach ($this->list as $cliente) : ?>
+		
+		<?php echo 'Fotos Cliente'; ?>
+		<br />
+		<br />
+			
+		<table class="dados" id="dados">
+			<tr>
+				<td>ID Cliente: <?php echo $cliente->getCliente()->id_cliente; ?></td>
+				<td>Tipo Pessoa: <?php echo $cliente->getTipoPessoa(); ?></td>
+				<td>Tipo Cadastro: <?php echo $cliente->getTipoCadastro(); ?></td>
+				<td>Situação: <?php echo $cliente->getSituacao(); ?></td>
+			</tr>
+			
+			<tr>
+				<td>Nome: <?php echo $cliente->getCliente()->nome; ?></td>
+				<td>Telefone: <?php echo $cliente->getTelefone()->telefone; ?></td>
+				<td>Enereço: <?php echo $cliente->getEndereco()->logradouro; ?>
+				<?php echo $cliente->getEndereco()->numero_end; ?></td>
+				<td>Bairro: <?php echo $cliente->getEndereco()->bairro; ?></td>
+			</tr>
+
+			<tr>
+				<td>Cep: <?php echo $cliente->getEndereco()->cep; ?></td>
+				<td>Zona: <?php echo $cliente->getEndereco()->zona; ?></td>
+				<td>Cidade: <?php echo $cliente->getEndereco()->cidade; ?></td>
+				<td>Estado: <?php echo $cliente->getEndereco()->estado; ?></td>
+			</tr>
+
+			<tr>
+				<td>Cpf: <?php echo $cliente->getCliente()->cpf; ?></td>
+				<td>Cnpj: <?php echo $cliente->getCliente()->cnpj; ?></td>
+				<td>Rg: <?php echo $cliente->getCliente()->rg; ?></td>
+				<td>Profissão: <?php echo $cliente->getCliente()->profissao; ?></td>
+			</tr>
+
+
+
+			<tr>
+				<td>Data Nasc: <?php echo $cliente->getCliente()->data_nascimento; ?></td>
+				<td>Nacionalidade: <?php echo $cliente->getCliente()->nacionalidade; ?></td>
+				<td>Estado Civil: <?php echo $cliente->getCliente()->estado_civil; ?></td>
+				<td>E-Mail: <?php echo $cliente->getCliente()->email; ?></td>
+			</tr>
+
+			<tr>
+				<td>Data Cadastro: <?php echo $cliente->getCliente()->data_cadastro; ?></td>
+				<td>Ultimo Contato: <?php echo $cliente->getCliente()->ultimo_contato; ?></td>
+			</tr>
+			
+			<tr>
+				<td>Anotações: <?php echo $cliente->getCliente()->anotacoes; ?></td>
+			</tr>
+				
+		    <?php endforeach; ?>
+			<?php endif; ?>
+		</table>
+	
+	</fieldset>
+</div>	
+
+<script type="text/javascript">
+	Registros.visualizar();
+</script>

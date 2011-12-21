@@ -1,0 +1,56 @@
+<h1>Corretores Imobiliaria</h1>
+
+<?php if (is_array($this->message)) :?>
+    <?php foreach ($this->message as $msg) :?>
+        <h3><?php echo $msg; ?></h3>
+    <?php endforeach;?>
+ <?php endif;?>
+
+<table class="dados" id="dados">
+    <thead>
+        <tr>
+            <th>Nome</th>
+            <th>Telefone</th>
+            <th>Endereço</th>
+            <th>Data Cadastro</th>
+            <th>Opções</th>
+        </tr>
+     </thead>
+     <tbody>
+        <?php if ($this->list != NULL) : ?>
+        <?php foreach ($this->list as $corretor) : ?>
+            <tr>
+                <td><?php echo $corretor->getCorretor()->nome; ?></td>
+                <td><?php echo $corretor->getTelefone()->telefone; ?></td>
+				<td><?php echo $corretor->getEndereco()->logradouro . "&nbsp" . $corretor->getEndereco()->numero_end; ?></td>
+                <td><?php echo $corretor->getCorretor()->creci; ?></td>
+                
+                <td style="text-align: center; width: 120px;">
+				<a href="<?php echo $this->url(array(
+	            				'module' 	 => 'imobiliaria',
+	                            'controller' => 'corretor',
+	                            'action'     => 'visualizar',
+	                            'id'         => $corretor->getCorretor()->id_corretor)); ?> " title="Visualizar" ><img id="icone_visualizar" src="/images/buscar.png" /></a>
+				
+				
+				<a href="<?php echo $this->url(array(
+	            				'module'	 => 'imobiliaria',
+	                            'controller' => 'corretor',
+	                            'action'     => 'alterar',
+	                            'id'         => $corretor->getCorretor()->id_corretor)); ?>" title="Editar"><img id="icone_editar" src="/images/editar.png" /></a>  
+				
+	            <a href="<?php echo $this->url(array(
+	            				'module' 	 => 'imobiliaria',
+	                            'controller' => 'corretor',
+	                            'action'     => 'inativar',
+	                            'id'         => $corretor->getCorretor()->id_corretor)); ?>" title="Remover" onclick="Registros.excluir(event)"><img id="icone_remover" src="/images/lixo.png" /></a>
+				</td>
+            </tr>
+        <?php endforeach; ?> 
+       <?php endif;?>
+     </tbody>
+</table>
+
+<script type="text/javascript">
+	Registros.visualizar();
+</script>

@@ -1,0 +1,138 @@
+<h1>Visualizar Cliente</h1>
+
+<?php if (is_array($this->message)) : ?>
+	<?php foreach ($this->message as $msg) : ?>
+		<h3><?php echo $msg; ?></h3>
+	<?php endforeach;?>
+<?php endif; ?>
+
+<div align="center">
+
+	<?php if( $this->list != NULL ) : ?>
+	<?php foreach ($this->list as $cliente) : ?>
+	<fieldset>
+		<legend><h3>Informações do Cliente</h3></legend>
+			
+		<table class="dados" id="dados">
+			<tr>
+				<td>ID Cliente: <?php echo $cliente->getCliente()->id_cliente; ?></td>
+				<td>Tipo Pessoa: <?php echo $cliente->getTipoPessoa(); ?></td>
+				<td>Tipo Cadastro: <?php echo $cliente->getTipoCadastro(); ?></td>
+				<td>Situação: <?php echo $cliente->getSituacao(); ?></td>
+			</tr>
+			
+			<tr>
+				<td>Nome: <?php echo $cliente->getCliente()->nome; ?></td>
+				<td>Telefone: <?php echo $cliente->getTelefone()->telefone; ?></td>
+				<td>Enereço: <?php echo $cliente->getEndereco()->logradouro; ?>
+				<?php echo $cliente->getEndereco()->numero_end; ?></td>
+				<td>Bairro: <?php echo $cliente->getEndereco()->bairro; ?></td>
+			</tr>
+
+			<tr>
+				<td>Cep: <?php echo $cliente->getEndereco()->cep; ?></td>
+				<td>Zona: <?php echo $cliente->getZona(); ?></td>
+				<td>Cidade: <?php echo $cliente->getEndereco()->cidade; ?></td>
+				<td>Estado: <?php echo $cliente->getEndereco()->estado; ?></td>
+			</tr>
+
+			<tr>
+				<td>Cpf: <?php echo $cliente->getCliente()->cpf; ?></td>
+				<td>Cnpj: <?php echo $cliente->getCliente()->cnpj; ?></td>
+				<td>Rg: <?php echo $cliente->getCliente()->rg; ?></td>
+				<td>Profissão: <?php echo $cliente->getCliente()->profissao; ?></td>
+			</tr>
+
+			<tr>
+				<td>Data Nasc: <?php echo $cliente->getCliente()->data_nascimento; ?></td>
+				<td>Nacionalidade: <?php echo $cliente->getCliente()->nacionalidade; ?></td>
+				<td>Estado Civil: <?php echo $cliente->getTipoEstadoCivil(); ?></td>
+				<td>E-Mail: <?php echo $cliente->getCliente()->email; ?></td>
+			</tr>
+
+			<tr>
+				<td>Data Cadastro: <?php echo $cliente->getCliente()->data_cadastro; ?></td>
+				<td>Ultimo Contato: <?php echo $cliente->getCliente()->ultimo_contato; ?></td>
+			</tr>
+			
+			<tr>
+				<td>Anotações: <?php echo $cliente->getCliente()->anotacoes; ?></td>
+			</tr>
+				
+		</table>
+	</fieldset>
+    <?php endforeach; ?>
+	<?php endif; ?>
+	
+	<?php if( $this->interesse != NULL ) : ?>
+	<?php foreach ($this->interesse as $interesse) : ?>
+	<fieldset>
+		<legend><h3>Interesse do cliente</h3></legend>
+		<table class="dados" id="dados">
+			<tr>
+				<td>Tipo Imóvel: <?php echo Application_Model_InteresseCliente::getTipoImovel($interesse['tipo_imovel']); ?></td>
+				<td>Categoria Imóvel: <?php echo Application_Model_InteresseCliente::getCategoriaImovel($interesse['categoria_imovel']); ?></td>
+				<td>Valor Imóvel: <?php echo $interesse['valor_imovel']; ?></td>
+				<td>Ano Contrução: <?php echo $interesse['ano_construcao']; ?></td>
+			</tr>
+			<tr>
+				<td>Domitórios: <?php echo $interesse['dormitorios']; ?></td>
+				<td>Suite: <?php echo $interesse['suite']; ?></td>
+				<td>Vaga Carro: <?php echo $interesse['vaga_carro']; ?></td>
+				<td>Metragem Terreno: <?php echo $interesse['metragem_terreno']; ?></td>
+			</tr>
+			<tr>
+				<td>Valor Iptu: <?php echo $interesse['valor_iptu']; ?></td>
+				<td>Valor Condominio: <?php echo $interesse['valor_condominio']; ?></td>
+				<td>Área de Lazer: <?php echo $interesse['area_lazer']; ?></td>
+				<td>Área Construida: <?php echo $interesse['area_construida']; ?></td>
+			</tr>
+			<tr>
+				<td>Total Comodos: <?php echo $interesse['total_comodos']; ?></td>
+				<td>Área de Serviço: <?php echo $interesse['area_servico']; ?></td>
+				<td>Zona: <?php echo Application_Model_InteresseCliente::getZona($interesse['zona']); ?></td>
+				<td>Bairro: <?php echo $interesse['bairro']; ?></td>
+			</tr>
+			<tr>
+				<td>Cidade: <?php echo $interesse['cidade']; ?></td>
+				<td>Estado: <?php echo $interesse['estado']; ?></td>
+				<td>Tipo Endereço: <?php echo Application_Model_InteresseCliente::getTipoEndereco($interesse['tipo_endereco']); ?></td>
+			</tr>
+			
+			<!-- 
+			<tr>
+				<td>
+					<a href="" target="_blank" onclick="Nova.janela('/imobiliaria/clientes/cadastrar'); return false; ">Buscar Imóvel</a>
+				</td>
+			</tr>
+			-->
+		</table>
+	</fieldset>
+	<?php endforeach; ?>
+	<?php endif; ?>
+	
+	<!-- Lista os interesses do cliente -->	
+	<?php if ($this->totalImovel != NULL) :?>
+	<fieldset>
+		<table class="dados" id="dados">
+			<tr>
+				<td>
+				<b>Atenção:</b> Há <b><?php echo $this->totalImovel; ?></b> imóvel(is) que podem interessar ao cliente!
+				<a href="/imobiliaria/imovel/resultado-pesquisa" target="_blank" ><b>Visualizar!</b></a>
+				</td>
+			</tr>
+		</table>
+	</fieldset>
+	<?php endif; ?>
+	
+	<br />
+	<br />
+	<div align="left">
+		<a href="/imobiliaria/clientes/listar">Voltar</a>
+	</div>
+	
+</div>	
+
+<script type="text/javascript">
+	Registros.visualizar();
+</script>

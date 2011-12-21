@@ -1,0 +1,54 @@
+<link rel="stylesheet" type="text/css" media="all" href="/css/jquery-ui-1.8.16.custom.css" />
+<script type="text/javascript" src="/js/jquery-ui-1.8.16.custom.min.js"></script>
+
+<h3 align="center">Cadastrar Novo Usuário</h3>
+
+<div align="center">
+<?php if (is_array($this->message)) :?>
+    <?php foreach ($this->message as $msg) :?>
+        <h3><?php echo $msg; ?></h3>
+    <?php endforeach;?>
+ <?php endif;?>
+</div>
+
+<form id="usuarios" method="post" action="cadastrar" enctype="application/x-www-form-urlencoded" name="usuarios">
+
+
+<div align="center">
+	<form id="clientes" name="clientes" enctype="application/x-www-form-urlencoded" method="post" action="cadastrar">
+		<fieldset>
+			<legend>Dados</legend>
+				<div id="accordion">
+					<h3><a href="#">Dados do Usuário</a></h3>
+					<div>
+						<div class='campo_tupla'>
+							<div class='campo_unico'>
+								<?php echo $this->form->nome; ?>
+							</div>
+						</div>
+						<div style='clear:both;'>&nbsp;</div>
+						<div class='campo_tupla'>
+							<div class='campo_longo'>
+								<?php echo $this->form->login; ?>
+							</div>
+							<div class='campo_longo'>
+								<?php echo $this->form->perfil; ?>
+							</div>
+						</div>
+						<div style='clear:both;'>&nbsp;</div>
+						<div class='campo_tupla'>
+							<div class='campo_longo'>
+								<?php echo $this->form->senha; ?>
+							</div>
+							<div class='campo_longo'>
+								<?php echo $this->form->confirmar_senha; ?>
+							</div>
+						</div>
+						<div style='clear:both;'>&nbsp;</div>
+					</div>
+				</div>
+				<div style="text-align: center;"><?php echo $this->form->autenticar; ?></div>
+		</fieldset>
+		<?php echo $this->form->situacao; ?>
+	</form>
+</div>

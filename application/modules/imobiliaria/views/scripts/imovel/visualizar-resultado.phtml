@@ -1,0 +1,75 @@
+<h3 align="center">Cadastrar Imóvel</h3>
+
+<?php if (is_array($this->message)) :?>
+	<?php foreach ($this->message as $msg) :?>
+		<h3><?php echo $msg; ?></h3>
+	<?php endforeach;?>
+<?php endif;?>
+
+<div align="center">
+	<fieldset>
+		<legend>Informações do Imóvel</legend>
+		<?php if( $this->list != NULL ) : ?>
+		<?php foreach ($this->list as $imovel) : ?>
+			
+		<table class="dados" id="dados">
+			<tr>
+				<td>ID Imóvel: <?php echo $imovel->getImovel()->id_imovel; ?></td>
+				<td>Status Imóvel: <?php echo $imovel->getStatusImovel(); ?></td>
+				<td>Valor: <?php echo $imovel->getImovel()->valor_imovel; ?></td>
+				<td>Situação: <?php echo $imovel->getSituacao(); ?></td>
+			</tr>
+			
+			<tr>
+				<td>Tipo Imóvel: <?php echo $imovel->getTipoImovel(); ?></td>
+				<td>Categoria Imóvel: <?php echo $imovel->getCategoriaImovel(); ?></td>
+				<td>Local Chave: <?php echo $imovel->getChaveImovel(); ?></td>
+				<td>Ano Construção: <?php echo $imovel->getImovel()->ano_construcao; ?></td>
+			</tr>
+			
+			<tr>
+				<td>Imóvel: <?php echo $imovel->getImovel()->imovel; ?></td>
+				<td>Enereço: <?php echo $imovel->getEndereco()->logradouro; ?> <?php echo $imovel->getEndereco()->numero_end; ?></td>
+				<td>Bairro: <?php echo $imovel->getEndereco()->bairro; ?></td>
+			</tr>
+
+			<tr>
+				<td>Cep: <?php echo $imovel->getEndereco()->cep; ?></td>
+				<td>Zona: <?php echo $imovel->getZona(); ?></td>
+				<td>Cidade: <?php echo $imovel->getEndereco()->cidade; ?></td>
+				<td>Estado: <?php echo $imovel->getEndereco()->estado; ?></td>
+			</tr>
+
+			<tr>
+				<td>Data Cadastro: <?php echo $imovel->getImovel()->data_cadastro; ?></td>
+				<td>Ultimo Contato: <?php echo $imovel->getImovel()->ultima_visita; ?></td>
+			</tr>
+			
+			<tr>
+				<td>Anotações: <?php echo $imovel->getImovel()->anotacoes; ?></td>
+			</tr>
+				
+		    <?php endforeach; ?>
+			<?php endif; ?>
+		</table>
+	
+	</fieldset>
+	
+	<!-- 
+	<fieldset>
+	<legend>Fotos do Imóvel</legend>
+	<table class="dados" id="dados">
+		<tr>
+			<td>TESTE</td>
+			<td>TESTE</td>
+			<td>TESTE</td>
+			<td>TESTE</td>
+		</tr>
+	</table>
+	</fieldset>
+	 -->
+</div>
+
+<script type="text/javascript">
+	Registros.visualizar();
+</script>

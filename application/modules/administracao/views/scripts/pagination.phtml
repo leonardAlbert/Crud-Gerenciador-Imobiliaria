@@ -1,0 +1,38 @@
+<div>
+<!-- Link para a primeira página -->
+<?php if (isset($this->previous)): ?>
+     <a href="<?php echo $this->url(array('page' => $this->first)); ?>">Primeira</a> |
+<?php else: ?>
+      <span>Primeira</span> |
+<?php endif; ?>
+
+<!-- Link para a página anterior -->
+<?php if (isset($this->previous)): ?>
+     <a href="<?php echo $this->url(array('page' => $this->previous)); ?>">&lt; Anterior</a> |
+<?php else: ?>
+     <span>&lt; Anterior</span> |
+<?php endif; ?>
+
+<!-- Links numerados -->
+<?php foreach ($this->pagesInRange as $page): ?>
+     <?php if ($page != $this->current): ?>
+          <a href="<?php echo $this->url(array('page' => $page)); ?>"><?= $page; ?></a>
+     <?php else: ?>
+          <span><?php echo $page; ?></span>
+     <?php endif; ?>
+<?php endforeach; ?>
+
+<!-- Link para a Próxima página -->
+<?php if (isset($this->next)): ?>
+      | <a href="<?php echo $this->url(array('page' => $this->next)); ?>">Próxima &gt;</a> |
+<?php else: ?>
+      | <span>Próxima &gt;</span> |
+<?php endif; ?>
+
+<!-- Última página -->
+<?php if (isset($this->next)): ?>
+     <a href="<?php echo $this->url(array('page' => $this->last)); ?>">Última</a>
+<?php else: ?>
+     <span>Última</span>
+<?php endif; ?>
+</div>

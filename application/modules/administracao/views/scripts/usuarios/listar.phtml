@@ -1,0 +1,55 @@
+<h1>Usuários do Sistema</h1>
+
+<?php if (is_array($this->message)) :?>
+    <?php foreach ($this->message as $msg) :?>
+        <h3><?php echo $msg; ?></h3>
+    <?php endforeach;?>
+ <?php endif; ?>
+ 
+ 
+
+<table class="dados">
+    <thead>
+        <tr>
+            <th>Nome</th>
+            <th>Login</th>
+            <th>Perfil</th>
+            <th>Situação</th>
+            <th>Opções</th>
+        </tr>
+     </thead>
+     <tbody>
+        <?php foreach ($this->list as $usuario) : ?>
+            <tr>
+                <td><?php echo $usuario->nome; ?></td>
+                <td><?php echo $usuario->login; ?></td>
+                <td><?php echo Application_Model_Usuarios::getPerfil($usuario->perfil); ?></td>
+                <td><?php echo Application_Model_Usuarios::getSituacao($usuario->situacao); ?></td>
+                <td style="text-align: center;">
+                    <a href="<?php echo $this->url(array(
+                                        'module'		=> 'administracao',
+                                        'controller'	=> 'usuarios',
+                                        'action'     	=> 'alterar',
+                                        'id'        	=> $usuario->id_usuario)); ?>" title="Editar">Editar | 
+                    </a>
+                    <a href="<?php echo $this->url(array(
+                                       'module' 		=> 'administracao',
+                                        'controller'	=> 'usuarios',
+                                        'action'     	=> 'inativar',
+                                        'id'         	=> $usuario->id_usuario)); ?>" onclick="Registros.excluir(event)">Apagar | 
+                    </a>
+                    <a href="<?php echo $this->url(array(
+                                       'module' 		=> 'administracao',
+                                        'controller'	=> 'usuarios',
+                                        'action'     	=> 'alterar-senha',
+                                        'id'         	=> $usuario->id_usuario)); ?>" >Alterar Senha
+                    </a>
+                </td>
+            </tr>
+        <?php endforeach; ?>
+     </tbody>
+</table>
+
+<script type="text/javascript">
+Registros.visualizar();
+</script>

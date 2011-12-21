@@ -1,0 +1,59 @@
+<h3 align="center">Listar Imóvel</h3>
+
+<?php if (is_array($this->message)) :?>
+    <?php foreach ($this->message as $msg) :?>
+        <h3><?php echo $msg; ?></h3>
+    <?php endforeach;?>
+ <?php endif;?>
+
+<table class="dados" id="dados">
+    <thead>
+        <tr>
+			<th>Imovel</th>
+			<th>Tipo Imovel</th>
+			<th>Valor Imóvel</th>
+			<th>Status Imovel</th>
+			<th>Endereço</th>
+            <th>Opções</th>
+        </tr>
+     </thead>
+     <tbody>
+        <?php if( $this->list != NULL ) : ?>
+        <?php foreach ($this->list as $imovel) : ?>
+            <tr>
+                <td><?php echo $imovel->getImovel()->imovel; ?></td>
+                <td><?php echo $imovel->getTipoImovel(); ?></td>
+                <td>R$: <?php echo $imovel->getImovel()->valor_imovel; ?></td>
+                <td><?php echo $imovel->getStatusImovel(); ?></td>
+                <td><?php echo $imovel->getEndereco()->logradouro .' '. $imovel->getEndereco()->numero_end; ?></td>
+                
+               <td style="text-align: center; width: 150px;">
+	              
+	            <a href="<?php echo $this->url(array(
+	            				'module' 	 => 'imobiliaria',
+	                            'controller' => 'imovel',
+	                            'action'     => 'visualizar',
+	                            'id'         => $imovel->getImovel()->id_imovel)); ?> " title="Visualizar" ><img id="icone_visualizar" src="/images/buscar.png" /></a>
+				                
+				<a href="<?php echo $this->url(array(
+	            				'module'	 => 'imobiliaria',
+	                            'controller' => 'imovel',
+	                            'action'     => 'alterar',
+	                            'id'         => $imovel->getImovel()->id_imovel)); ?>" title="Editar"><img id="icone_editar" src="/images/editar.png" /></a>  
+				
+	            <a href="<?php echo $this->url(array(
+	            				'module' 	 => 'imobiliaria',
+	                            'controller' => 'imovel',
+	                            'action'     => 'inativar',
+	                            'id'         => $imovel->getImovel()->id_imovel)); ?>" title="Remover" onclick="Registros.excluir(event)"><img id="icone_remover" src="/images/lixo.png" /></a>
+				</td>
+				
+            </tr>
+        <?php endforeach; ?>
+        <?php endif; ?>
+     </tbody>
+</table>
+
+<script type="text/javascript">
+	Registros.visualizar();
+</script>

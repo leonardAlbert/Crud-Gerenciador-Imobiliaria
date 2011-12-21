@@ -1,0 +1,505 @@
+@charset "UTF-8";
+
+/* CSS Document */
+body {
+	margin: 0;
+	padding: 0;
+	background: url(/images/background.png) bottom right no-repeat fixed;
+	font-family: "Lucida Sans Unicode", "Lucida Grande", sans-serif;
+	font-size: 12px;
+	color: #222;
+}
+
+fieldset {
+	text-align: left; 
+	align: center;
+	width: 600px;
+	//background-color: #EEE;
+	//border: 2px solid #999;
+	//-o-border-radius: 10px;
+	//bkp//-moz-border-radius: 10px;
+	-moz-border-radius: 5px;
+	//-webkit-border-radius: 10px;
+	//-moz-box-shadow: 10px 10px 20px #CCC;
+	//-webkit-box-shadow: 10px 20px 15px #CCC;
+	//box-shadow: 10px 20px 15px #CCC;
+}
+
+a {
+	color: #06C;
+	text-decoration: none;
+}
+
+.error {
+    color: #A00;
+}
+
+.error a {
+    color: #336699;
+    font-size: 12px;
+    text-decoration: underline;
+}
+
+.tooltip {
+    background-color: #F4F1E9;
+    border: 1px solid #CCCCCC;
+    bottom: 0;
+    display: none;
+    left: 30px;
+    padding: 10px;
+    position: absolute;
+    width: 170px;
+    z-index: 100;
+}
+
+#top {
+	min-height: 158px;
+	background: url(/images/backgrounds/top.png) repeat-x;
+}
+
+#logo {
+	position: absolute;
+	background: url(/images/imobiliaria.png) no-repeat top left;
+	width: 500px;
+	height: 150px;
+	top: 10px;
+	left: 50%;
+	margin-left: -450px;
+	z-index: 2;
+}
+
+#logo h1 {
+	margin-left: 160px;
+	display: block;
+	padding: 0px;
+	color: #FFF;
+	font-size: 20pt;
+}
+
+#logo h3 {
+	margin-left: 160px;
+	padding: 0px;
+	color: #FFF;
+	font-size: 9pt;	
+}
+	
+#menu {
+	position: absolute;
+	top: 130px;
+	width: 100%;
+	height: 28px;
+	background: #eee;
+	/*overflow: hidden;*/
+	z-index: 3;
+	background: url(/images/backgrounds/menu.jpg) repeat-x;
+	border-bottom: 1px solid #ccc;
+}
+
+#menu ul {
+	margin: 0;
+	padding: 0;
+	width: 950px;
+	margin: auto;
+}
+
+#menu ul li {
+	list-style: none;
+	display: block;
+	float: left;
+	width: 120px;
+	padding: 5px;
+	border-left: 1px solid #bbb;
+}
+
+#menu ul li:hover {
+	background: #FFF;
+}
+
+#menu ul li a {
+	display: block;
+	font-weight: bold;
+	color: #000;
+	height: 19px;
+}
+
+#menu ul li ul {
+	padding: 0;
+	margin: 0;
+	visibility: hidden;
+	display: block;
+	width: 180px;
+	position: absolute;
+	z-index: 2;
+	background: #eee;
+	/*overflow: hidden;*/
+}
+
+#menu li:hover ul {
+	visibility: visible;
+	border: 1px solid #ddd;
+}
+
+#menu li:hover ul li {
+	display: block;
+	width: 170px;
+	/*float: left;*/
+	min-height: 20px;
+	clear: both;
+	border-bottom: 1px solid #ddd;
+	border-left: none;
+}
+
+#menu li:hover ul li a {
+	display: block;
+	width: 120px !important;
+	font-size: 11px;
+	font-weight: 100;
+}
+
+#menu li:hover ul li ul {
+	padding: 0;
+	margin: 0;
+	visibility: hidden;
+	display: block;
+	width: 170px;
+	position: absolute;
+	margin-top: -30px;
+	margin-left: 150px;
+	z-index: 3;
+	background: #eee;
+	overflow: hidden;
+}
+
+#menu li:hover ul li:hover ul {
+	visibility: visible;
+	border: 1px solid #ddd;
+}
+
+#content {
+	width: 950px;
+	min-height: 500px;
+	margin: auto;
+	font-size: 13px;
+}
+
+#content h1 {
+	color: #333333;
+	margin-bottom: 2px;
+}
+
+#content #breadcumb {
+	border-top: 1px solid #eee;
+	height: 30px;
+	overflow: hidden;
+	vertical-align: middle;
+}
+
+#content #breadcumb ul {
+	list-style: none;
+	margin: 0;
+	padding: 0;
+}
+
+#content #breadcumb ul li {
+	display: block;
+	float: left;
+	height: 30px;
+	padding: 5px 5px 5px 10px;
+}
+
+#content table.dados {
+	border: 1px solid #bbb;
+	width: 950px;
+	-o-border-radius: 10px;
+	-moz-border-radius: 10px;
+	-webkit-border-radius: 10px;
+	-moz-box-shadow: 10px 10px 5px #CCC;
+	-webkit-box-shadow: 10px 10px 5px #CCC;
+	box-shadow: 10px 10px 5px #CCC;
+	font-size: 11pt;
+}
+
+#content table.dados caption {
+	margin-bottom: 10px;
+	font-weight: bold;
+	font-size: 14px;
+}
+
+#content table.dados th {
+	border-bottom: 1px solid #bbb;
+	padding: 10px;
+	background: #fafafa;
+}
+
+#content table.dados td {
+	border-left: 1px solid #eee;
+	border-bottom: 1px solid #eee;
+	padding: 2px;
+	text-align: left;
+}
+
+#content table.dados tr:hover {
+	background: #EEE;
+}
+
+#content table.dados a {
+	text-align: center;
+}
+
+/*
+#content form {
+	padding: 0 20px;
+	clear: both;
+}
+
+#content form label {
+	font-weight: bold;
+	display: block;
+}
+
+#content form div.campos {
+	padding: 5px;
+	max-width: 30%;
+	float: left;
+}
+*/
+#content input[type=text], input[type=password], select, textarea  {
+	padding: 5px;
+	font-size: 13px;
+	border: 1px solid #999;
+	background-color: #FFF;
+	-o-border-radius: 5px;
+	-moz-border-radius: 5px;
+	-webkit-border-radius: 5px;
+	resize: none;
+}
+
+#content input[type=text]:focus, input[type=password]:focus, select:focus, textarea:focus {
+	padding: 5px;
+	font-size: 13px;
+	background-color: #FFF;	
+	border: 2px solid #C80000;
+	resize: none;
+}
+
+#content input[type=submit] {
+	background: url(/images/backgrounds/button.jpg);
+	padding: 5px;
+	font-size: 14px;
+	border: 1px solid #000;
+	min-width: 100px;
+	color: #fff;
+	-o-border-radius: 10px;
+	-moz-border-radius: 10px;
+	-webkit-border-radius: 10px;
+}
+
+#content ul.errors {
+	padding: 5px;
+	margin: 0;
+}
+
+#content ul.errors li {
+    color: #A00;
+    font-size: 12px;
+    font-weight: bold;
+    text-decoration: none;
+    list-style-type: none;
+}
+
+#content input[type=submit]:active {
+	background: url(/images/backgrounds/button_down.jpg);
+	padding: 5px;
+	font-size: 14px;
+	border: 1px solid #ccc;
+	min-width: 100px;
+	color: #fff;
+}
+
+#content select {
+	padding: 5px;
+	font-size: 13px;
+}
+
+#footer {
+	width: 950px;
+	margin: auto;
+	border-top: 1px solid #eee;
+	height: 30px;
+}
+
+#footer p {
+	display: block;
+	text-align: center;
+	color: #333;
+}
+
+.required {
+	background-image: url(/images/required-field.png);
+	background-position: top left;
+	background-repeat: no-repeat;
+	padding-left: 10px;
+}
+
+#calendar {
+	width: 850px;
+	margin: 0 auto;
+}
+
+
+
+/*CAMPOS FORM*/
+
+.campo_tupla {
+	/*border: 1px solid #000;*/
+	/*float: left;*/
+	width: 535px;
+}
+
+.campo_unico {
+	/*border: 1px solid #A00;*/
+	float: left;
+	/*margin-left: 40px;*/
+	width: 100%;
+}
+
+.campo_longo {
+	float: left;
+	/*margin-left: 30px;*/
+	width: 267px;
+}
+
+.campo_curto {
+	float: left;
+	margin-left: 30px;
+	width: 195px;
+}
+
+.campo_centralizado {
+	width: 100%;
+	text-align: center;
+}
+
+.campo_referencia {
+	float: left;
+	margin-top: 20px;
+	margin-left: 30px;
+	margin-bottom: 10px
+}
+
+/**/
+
+#content form label {
+	font-weight: bold;
+	display: block;
+	color: #036;
+}
+
+#content form div input[disabled] {
+	background-color: #EEE;
+	color: #000;
+}
+
+#content form input[disabled] {
+	background-color: #EEE;
+	color: #000;
+}
+
+#content form div select[disabled] {
+	background-color: #EEE;
+	color: #000;
+}
+
+#content form input[readonly] {
+	background-color: #EEE;
+	color: #000;
+}
+
+#content form div input[readonly] {
+	background-color: #EEE;
+	color: #000;
+}
+
+
+/* ----- Slides - Tela Principal ----- */
+
+#slides_principal {
+    margin: 60px auto;
+    padding: 10px;
+    position: relative;
+    width: 580px;
+    z-index: 0;
+}
+
+#frame {
+    height: 341px;
+    left: -80px;
+    position: absolute;
+    top: -3px;
+    width: 739px;
+    z-index: 0;
+}
+
+#slides {
+    left: 4px;
+    position: absolute;
+    top: 15px;
+    z-index: 100;
+}
+
+#slides .next, #slides .prev {
+    display: block;
+    height: 43px;
+    left: -39px;
+    position: absolute;
+    top: 107px;
+    width: 24px;
+    z-index: 101;
+}
+
+.slides_container {
+    display: none;
+    height: 270px;
+    overflow: hidden;
+    position: relative;
+    width: 570px;
+}
+
+.slides_container a {
+    display: block;
+    height: 270px;
+    width: 570px;
+}
+
+#slides .next {
+    left: 585px;
+}
+
+/* ----- Pagination - Tela Principal ----- */
+
+.pagination {
+    margin: 26px auto 0;
+    width: 100px;
+}
+
+.pagination li a {
+    background-image: url("/js/slides/pagination.png");
+    background-position: 0 0;
+    display: block;
+    float: left;
+    height: 0;
+    overflow: hidden;
+    padding-top: 12px;
+    width: 12px;
+}
+
+.pagination li.current a {
+    background-position: 0 -12px;
+}
+
+ol, ul {
+	list-style: none outside none;
+}
+
+/* ----- Pagination - Tela Principal ----- */
+

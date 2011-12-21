@@ -1,0 +1,74 @@
+<h1>Clientes</h1>
+
+<?php if (is_array($this->message)) :?>
+    <?php foreach ($this->message as $msg) :?>
+        <h3><?php echo $msg; ?></h3>
+    <?php endforeach;?>
+ <?php endif;?>
+
+<table class="dados" id="dados">
+    <thead>
+        <tr>
+			<th>Nome</th>
+			<th>Telefone</th>
+			<th>Endereço</th>
+			<th>Ultimo Contato</th>
+			<th>E-Mail</th>
+            <th style="width: 100px;">Opções</th>
+        </tr>
+     </thead>
+     <tbody>
+     <?php if( $this->list != NULL ) : ?>
+        <?php foreach ($this->list as $cliente) : ?>
+			<tr>
+				<td><?php echo $cliente->getCliente()->nome; ?></td>
+				<td><?php echo $cliente->getTelefone()->telefone; ?></td>
+				<td><?php echo $cliente->getEndereco()->logradouro .' '. $cliente->getEndereco()->numero_end; ?></td>
+				<td><?php echo $cliente->getCliente()->ultimo_contato; ?></td>
+				<td><?php echo $cliente->getCliente()->email; ?></td>
+	            <td style="text-align: center; width: 150px;">
+	                            
+				<a href="<?php echo $this->url(array(
+	            				'module' 	 => 'imobiliaria',
+	                            'controller' => 'clientes',
+	                            'action'     => 'visualizar',
+	                            'id'         => $cliente->getCliente()->id_cliente)); ?> " title="Visualizar" ><img id="icone_visualizar" src="/images/buscar.png" /></a>
+				
+				<a href="<?php echo $this->url(array(
+	            				'module'	 => 'imobiliaria',
+	                            'controller' => 'clientes',
+	                            'action'     => 'alterar',
+	                            'id'         => $cliente->getCliente()->id_cliente)); ?>" title="Editar"><img id="icone_editar" src="/images/editar.png" /></a>  
+				
+	            <a href="<?php echo $this->url(array(
+	            				'module' 	 => 'imobiliaria',
+	                            'controller' => 'clientes',
+	                            'action'     => 'inativar',
+	                            'id'         => $cliente->getCliente()->id_cliente)); ?>" title="Remover" onclick="Registros.excluir(event)"><img id="icone_remover" src="/images/lixo.png" /></a>
+				
+				<?php if( $cliente->getCliente()->interesse_id == '0' ):?> 
+				<a href="<?php echo $this->url(array(
+	                                       	'module' 	 => 'imobiliaria',
+	                           				'controller' => 'clientes',
+											'action'     => 'interesse',
+	                                        'id'          => $cliente->getCliente()->id_cliente)); ?>" title="Adicionar Interesse"><img id="add_interesse" src="/images/add-interesse.png" /></a>
+				</a>
+				<?php else: ?>
+	            <a href="<?php echo $this->url(array(
+	                                     	'module' 	 => 'imobiliaria',
+	                           				'controller' => 'clientes',
+											'action'     => 'alterar-interesse',
+	                                        'id'         => $cliente->getCliente()->interesse_id)); ?>" title="Modificar Interesse"><img id="edit_interesse" src="/images/edit-interesse.png" /></a>
+				</a>
+				<?php endif; ?>
+				
+				</td>
+			</tr>
+	    <?php endforeach; ?>
+		<?php endif; ?>
+     </tbody>
+</table>
+
+<script type="text/javascript">
+	Registros.visualizar();
+</script>
